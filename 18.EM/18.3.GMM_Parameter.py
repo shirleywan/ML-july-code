@@ -78,13 +78,13 @@ if __name__ == '__main__':
     cm_dark = mpl.colors.ListedColormap(['r', 'g'])
     x1_min, x1_max = x[:, 0].min(), x[:, 0].max()
     x2_min, x2_max = x[:, 1].min(), x[:, 1].max()
-    x1_min, x1_max = expand(x1_min, x1_max)
+    x1_min, x1_max = expand(x1_min, x1_max)#便于画图，只用看这两个区间内的图形即可
     x2_min, x2_max = expand(x2_min, x2_max)
-    x1, x2 = np.mgrid[x1_min:x1_max:500j, x2_min:x2_max:500j]
-    grid_test = np.stack((x1.flat, x2.flat), axis=1)
+    x1, x2 = np.mgrid[x1_min:x1_max:500j, x2_min:x2_max:500j]# 用于生成多维结构
+    grid_test = np.stack((x1.flat, x2.flat), axis=1)#形成x1是横坐标，x2为纵坐标的形式
     grid_hat = gmm.predict(grid_test)
     grid_hat = grid_hat.reshape(x1.shape)
-    if gmm.means_[0][0] > gmm.means_[1][0]:
+    if gmm.means_[0][0] > gmm.means_[1][0]:#第一类被标记为0，第二类应该被标记为1；第一类数据较小
         z = grid_hat == 0
         grid_hat[z] = 1
         grid_hat[~z] = 0
