@@ -1,0 +1,8 @@
+if __name__=='__main__':
+	np.random.seed(0)
+
+	#intro()
+	N=1000
+	tip=u'一次函数关系'
+	x=np.random.rand(N)
+	y=np.zeros(N)+np.random.randn(N)*0.01
