@@ -1,0 +1,24 @@
+net: "train.prototxt"
+# num of validation / test batch size
+
+
+base_lr: 0.01
+lr_policy: "step"
+#lr_policy: "multistep"
+gamma: 0.96  #0.001  #0.96  #0.1
+stepsize: 5000
+#stepvalue: 180000
+#stepvalue: 350000
+display: 500
+max_iter: 20000
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 5000
+snapshot_prefix: "vggm_512_HWP_BikeAll_update1_4096_512"
+solver_mode: GPU
+
+#test_iter: 10000
+#test_interval: 20000
+#test_initialization: false
+
+
