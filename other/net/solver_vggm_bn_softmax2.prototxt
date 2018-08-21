@@ -1,0 +1,24 @@
+net: "train2.prototxt"
+# num of validation / test batch size
+
+
+base_lr: 0.001
+#lr_policy: "step"
+lr_policy: "multistep"
+gamma: 0.1  #0.001  #0.96  #0.1
+#stepsize: 60000
+stepvalue: 100000
+stepvalue: 160000
+display: 500
+max_iter:  220000
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 50000
+snapshot_prefix: "VGGM_BN_kako7014id_vggm_bn_192_96"
+solver_mode: GPU
+
+#test_iter: 10000
+#test_interval: 20000
+#test_initialization: false
+
+
